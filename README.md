@@ -1,153 +1,190 @@
-🚀 Multilingual Loan Advisor – AI-Powered Financial Assistant
+# Loan Advisor - AI-Powered Financial Assistant
 
-A multilingual, voice-enabled loan advisory platform that helps users understand, compare, and explore loan options using a conversational AI interface.
-Built with modern full-stack technologies and optimized for accessibility, especially for users from rural communities who may not be fluent in English or comfortable typing.
+A multilingual loan advisory application built with modern web technologies, designed to help rural communities access financial guidance through an intuitive chat interface with voice support.
 
-✨ Features
+## 🚀 Features
 
-✔ AI-Powered Chat — Conversational financial guidance using OpenAI GPT
-✔ Voice Support — Speech-to-text (OpenAI Whisper) + text-to-speech output
-✔ Multilingual — Supports English, हिंदी (Hindi), and ಕನ್ನಡ (Kannada)
-✔ Guest Mode — Explore the app without creating an account
-✔ Loan Eligibility Analysis — AI-based assessment and suggestions
-✔ Secure Authentication — Profiles, saved conversations, and personalized data
-✔ Mobile-Responsive UI — Works seamlessly across mobile and desktop
-✔ Persistent Conversations — Each session is stored securely
+- **AI-Powered Chat**: Intelligent loan advisory powered by Google Gemini AI
+- **Voice Support**: Speech-to-text and text-to-speech in multiple languages
+- **Multilingual**: Support for English, Hindi, and Kannada
+- **Guest Mode**: Try the app without creating an account
+- **Loan Eligibility**: AI-based loan assessment and recommendations
+- **Secure Authentication**: User accounts with profile management
+- **Real-time Chat**: Persistent conversations with session management
+- **Responsive Design**: Works seamlessly on mobile and desktop
 
-🛠️ Tech Stack
-Frontend
-Technology	Purpose
-React 18	UI framework
-TypeScript	Strong typing & maintainable code
-Vite	Lightning-fast dev server and bundler
-Tailwind CSS	Styling system
-shadcn/ui	Modern, customizable UI components
-React Router	Navigation
-TanStack Query	Client caching & API state
-Backend
-Service	Purpose
-Supabase	Auth, DB, edge functions
-PostgreSQL	Relational database
-Supabase Edge Functions	Serverless AI endpoints
-Row Level Security	Protect user data
-AI & Voice Processing
-Feature	Engine
-Chat responses	OpenAI GPT
-Voice input (speech-to-text)	OpenAI Whisper
-Voice output	Web Speech API + Supabase fallback TTS
-📦 Installation
-Prerequisites
+## 🛠️ Tech Stack
 
-Node.js 18+
+### Frontend
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
+- **React Router** - Client-side routing
+- **TanStack Query** - Data fetching and caching
 
-npm
+### Backend
+- **Supabase** - Backend as a service
+  - PostgreSQL database
+  - Authentication
+  - Edge Functions (Deno)
+  - Real-time capabilities
+- **AI Integration** - Google Gemini 2.5 Flash via gateway
+- **OpenAI Whisper** - Speech-to-text transcription
 
-Git
+### Key Libraries
+- `lucide-react` - Beautiful icons
+- `sonner` - Toast notifications
+- `react-hook-form` + `zod` - Form handling and validation
+- `date-fns` - Date manipulation
 
-Setup
-# Clone repository
+## 📦 Installation
+
+### Prerequisites
+- Node.js 18+ and npm
+- Git
+
+### Setup
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 cd loan-advisor
 
 # Install dependencies
 npm install
 
-# Copy environment template
-cp .env.example .env
-# Fill in your Supabase credentials
+# Set up environment variables
+# Copy .env.example to .env and fill in your Supabase credentials
 
 # Start development server
 npm run dev
+```
 
+The app will be available at `http://localhost:8080`
 
-App starts at:
-👉 http://localhost:8080
+## 🔧 Environment Variables
 
-🔧 Environment Variables
+Create a `.env` file with:
 
-Create a .env file:
-
+```env
 VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_PUBLISHABLE_KEY=your_anon_key
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
 VITE_SUPABASE_PROJECT_ID=your_project_id
+```
 
-📁 Project Structure
+## 📁 Project Structure
+
+```
 src/
-├── components/          
-│   ├── auth/                # Authentication screens
-│   ├── chat/                # Chat interface & voice recorder
-│   └── ui/                  # Reusable UI components
-├── integrations/
-│   └── supabase/            # Supabase clients & types
-├── pages/                   # Page-level routes
-├── hooks/                   # Custom React hooks
-└── lib/                     # Utility functions
+├── components/          # React components
+│   ├── auth/           # Authentication pages
+│   ├── chat/           # Chat interface
+│   └── ui/             # Reusable UI components
+├── integrations/       # External service integrations
+│   └── supabase/       # Supabase client and types
+├── pages/              # Route pages
+├── lib/                # Utility functions
+└── hooks/              # Custom React hooks
 
 supabase/
-├── functions/               
-│   ├── loan-advisor-chat/        # Chat AI endpoint
-│   ├── loan-eligibility-check/   # Eligibility scoring
-│   ├── transcribe-audio/         # Whisper STT
-│   └── text-to-speech/           # TTS fallback
-└── migrations/               # PostgreSQL migrations
+├── functions/          # Edge Functions
+│   ├── loan-advisor-chat/      # Main chat AI endpoint
+│   ├── loan-eligibility-check/ # Loan assessment
+│   ├── transcribe-audio/       # Voice-to-text
+│   └── text-to-speech/         # Text-to-voice
+└── migrations/         # Database migrations
+```
 
-🚀 Deployment
-Netlify Settings
-Build Command: npm run build
-Publish Directory: dist
+## 🚀 Deployment
 
+### Netlify
+```bash
+# Build command
+npm run build
 
-Environment variables to configure:
+# Publish directory
+dist
 
+# Environment variables (add in Netlify dashboard)
 VITE_SUPABASE_URL
 VITE_SUPABASE_PUBLISHABLE_KEY
 VITE_SUPABASE_PROJECT_ID
+```
 
-🔐 Security Practices
+## 🔐 Security Features
 
-🛡️ Row Level Security on all tables
-🔑 JWT-based authentication
-📦 Environment variables for secrets
-🧹 Zod + react-hook-form for safe user input
-🚫 No credentials stored on client-side
+- Row Level Security (RLS) on all database tables
+- Secure authentication with Supabase Auth
+- Environment variables for sensitive data
+- Input validation with Zod schemas
+- Protected API endpoints with JWT verification
 
-🌍 Accessibility & Multilingual Support
+## 📱 Key Features Explained
 
-UI and messages available in three Indian languages
+### Guest Mode
+Users can try the app immediately without signing up. Guest sessions use demo responses and don't persist data.
 
-Voice-driven interaction enables non-English & rural users to use the system effortlessly
+### Multilingual Support
+- Automatic language detection
+- UI translation for English, Hindi, and Kannada
+- Voice input/output in native languages
+- Context-aware AI responses
 
-Works even for users who cannot type
+### Voice Features
+- Browser-based speech synthesis (free, no API needed)
+- OpenAI Whisper for accurate transcription
+- Support for multiple Indian languages
 
-🎙️ Voice Features Explained
-Task	Tech
-User speaks a query	Microphone + Whisper
-Whisper converts audio → text	Supabase edge function
-GPT generates a reply	AI engine
-Browser speaks answer aloud	Web Speech API
+### Loan Assessment
+- AI-powered eligibility checks
+- Personalized loan recommendations
+- Risk level analysis
+- Multiple loan product comparisons
 
-This layered approach ensures speech support even when language models are limited.
+## 🧪 Development
 
-🧪 Development
-npm run dev      # Start local server
-npm run build    # Production build
-npm run preview  # Preview build
-npm run lint     # Linting
+```bash
+# Start dev server
+npm run dev
 
-📊 Database Schema
-Table	Purpose
-profiles	User details
-chat_sessions	Session-level context
-chat_messages	Individual messages
-loan_assessments	AI-based eligibility tracking
+# Build for production
+npm run build
 
-All tables use Row Level Security to isolate user data.
+# Preview production build
+npm run preview
 
-📝 License
+# Lint code
+npm run lint
+```
 
-This project is private and intended for demonstration purposes only.
+## 📊 Database Schema
 
-👤 Author
+### Tables
+- `profiles` - User profile information
+- `chat_sessions` - Conversation sessions
+- `chat_messages` - Individual messages
+- `loan_assessments` - Loan eligibility results
 
+All tables include Row Level Security policies for data protection.
+
+### Why This Stack?
+- **React**: Industry standard, large ecosystem, excellent for interactive UIs
+- **TypeScript**: Catches errors early, better IDE support, self-documenting code
+- **Supabase**: Open-source, PostgreSQL-based, handles auth/database/APIs in one platform
+- **Tailwind**: Rapid styling, consistent design system, small production bundle
+- **Edge Functions**: Low latency, auto-scaling, pay-per-use pricing
+
+### Challenges Solved
+- **Multilingual Voice**: Implemented fallback system for languages not supported by all browsers
+- **Guest vs Auth**: Dual-mode system allows trial without friction while maintaining security for logged-in users
+- **AI Rate Limits**: Error handling and user feedback for API limitations
+- **Real-time Chat**: Optimistic UI updates for instant feedback
+
+## 📝 License
+
+This project is private and confidential.
+
+## 👤 Author
 Divya M
-Full-stack developer passionate about AI-driven, multilingual financial tools that improve digital accessibility.
+Developed as a full-stack demonstration project showcasing modern web development practices.
